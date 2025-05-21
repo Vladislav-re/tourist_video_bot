@@ -1,4 +1,3 @@
-python-dotenv
-python-telegram-bot
-yt-dlp
-requests
+python-telegram-bot==20.3
+openai
+pytube
