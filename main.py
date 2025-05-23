@@ -1,17 +1,17 @@
 
-from tourist_video_bot.video_fetcher import download_video
-from tourist_video_bot.caption_generator import generate_caption
-from tourist_video_bot.telegram_poster import post_to_telegram
+import sys
 import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from video_fetcher import download_video
+from caption_generator import generate_caption
+from telegram_poster import post_to_telegram
 
 def main():
     video_path, location = download_video()
     caption = generate_caption(location)
     post_to_telegram(video_path, caption)
-    if os.path.exists(video_path):
-        os.remove(video_path)
-    if os.path.exists("cookies.txt"):
-        os.remove("cookies.txt")
+    os.remove(video_path)
 
 if __name__ == "__main__":
     main()
